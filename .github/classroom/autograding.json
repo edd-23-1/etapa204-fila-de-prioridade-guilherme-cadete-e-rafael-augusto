@@ -1,0 +1,74 @@
+{
+  "tests": [
+    {
+      "name": "test1",
+      "setup": "sudo -H pip3 install pytest",
+      "run": "pytest test/test_fila_prioridade.py -k is_empty -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 0
+    },
+    {
+      "name": "test2",
+      "setup": "sudo -H pip3 install pytest",
+      "run": "pytest test/test_fila_prioridade.py -k is_full -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 0
+    },
+    {
+      "name": "test3",
+      "setup": "sudo -H pip3 install pytest",
+      "run": "pytest test/test_fila_prioridade.py -k first -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 0
+    },
+    {
+      "name": "test4",
+      "setup": "sudo -H pip3 install pytest",
+      "run": "pytest test/test_fila_prioridade.py -k add -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 6
+    },
+    {
+      "name": "test5",
+      "setup": "sudo -H pip3 install pytest",
+      "run": "pytest test/test_fila_prioridade.py -k remove -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "test6",
+      "setup": "sudo -H pip3 install pytest",
+      "run": "pytest test/test_fila_prioridade.py -k display -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "test7",
+      "setup": "sudo -H pip3 install pytest",
+      "run": "pytest test/test_fila_prioridade.py -k size -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 0
+    }
+  ]
+}
