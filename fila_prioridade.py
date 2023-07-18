@@ -44,16 +44,15 @@ class FilaPrioridade:
         
         if self.is_empty():
             self.__inicio = no
+        elif no.prioridade > self.__inicio.prioridade:
+            no.prox = self.__inicio
+            self.__inicio = no
         else:
-            if no.prioridade > self.__inicio.prioridade:
-                self.__inicio.prox = self.__inicio
-                self.__inicio = no
-            else:
-                iterador = self.__inicio
-                while iterador.prox is not None and no.prioridade > iterador.prox.prioridade:
-                    iterador = iterador.prox
-                no.prox = iterador.prox
-                iterador = no
+            iterador = self.__inicio
+            while iterador.prox is not None and no.prioridade <= iterador.prox.prioridade:
+                iterador = iterador.prox
+            no.prox = iterador.prox
+            iterador.prox = no
         self.__qtdItens += 1
         return True
 
@@ -61,8 +60,13 @@ class FilaPrioridade:
     # remove o primeiro item da fila de prioridade, caso não esteja vazia, e retorna o Nó
     # se a fila de prioridade estiver vazia, lança uma exceção: raise Exception("mensagem de erro")
     def remove(self) -> No:
-        # implementação do método
-        pass
+        if self.is_empty():
+            raise Exception("mensagem de erro")
+        else:
+            iterador = self.__inicio
+            self.__inicio = self.__inicio.prox
+            self.__qtdItens -= 1
+            return iterador
 
 
     # retorna uma lista de tuplas com os itens (valor e prioridade) da fila de prioridade 
@@ -70,10 +74,15 @@ class FilaPrioridade:
     # caso a fila de prioridade esteja vazia, imprime uma mensagem informando
     # que a fila de prioridade está vazia e retorna uma lista vazia
     def display(self) -> list[tuple()]:
-        # implementação do método
-        pass
+        if self.is_empty():
+            raise Exception("mensagem de erro")
+        list = []
+        iterador = self.__inicio
+        while iterador is not None:
+            list.append((iterador.dado, iterador.prioridade))
+            iterador = iterador.prox
+        return list
     
-
     # retorna a quantidade de elementos na fila de prioridade
     # se a fila de prioridade estiver vazia, retorna ZERO
     def size(self) -> int:
